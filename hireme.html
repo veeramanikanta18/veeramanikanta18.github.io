@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+<script type="text/javascript">
+  emailjs.init('X0CTkW5RltC2OWq1M')
+</script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veera Manikanta</title>
+    <link  rel="icon" href="images/monero.png"/>
+    <style>
+        html{
+    scroll-behavior: smooth;
+}
+        body {
+            background: #000;
+        }
+        .container-1{
+            margin-top: 40px;
+            margin-bottom: 20px;
+            height:50rem; 
+            width:75rem;
+            background:#fff;
+            box-shadow: #fff;
+            backdrop-filter: blur(.4rem);
+            border-radius: 1rem;
+            overflow: hidden;
+            margin-left: 10%;
+        }
+        h3{
+            color: #000;
+            font-size: medium;
+            text-align: center;
+            text-decoration-line: underline;
+        }
+        form,label,input{
+            padding-right: 20px;
+            display: block;
+            justify-content: space-between;
+            margin-top: 7px;
+            margin-bottom: 5px;
+            flex-basis: 45%;
+            width: 100%;
+            border: 0px solid;
+            outline:none;
+            background:rgba(255, 255, 255, 0.1);
+        }
+        input{
+            margin-left: 10px;
+            border-radius: 10px;
+            outline: solid rgb(238, 238, 238);
+        }
+        label{
+           
+            margin-left: 10px;
+            border-radius: 3px;
+            background: #4D4DFF;
+            color: #ffff;
+            font-size: medium;
+        }
+        textarea{
+           
+            margin-left: 10px;
+            background:rgba(255,255,255,.1);
+            width: 100%;
+        }
+        .btn-1{
+            font-size: 2rem;
+            width: 22%;
+            height: 30%;
+            background:#4D4DFF;
+            color:#fff;
+            border-radius: 1rem;
+            border: 2px solid #4D4DFF;
+            transition: all 0.3s ease;
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+            margin-top: 1rem;
+            cursor: pointer;
+            transition:.2s linear;
+           
+        }
+        .btn-1:hover{
+            color: #4D4DFF;
+        background: none;
+}
+
+.btn-2 {
+            margin-right: 10px;
+            font-size: 2rem;
+            width: 20%;
+            height: 30%;
+            background:#4D4DFF;
+            color:#fff;
+            border-radius: 1rem;
+            border: 2px solid #4D4DFF;
+            transition: all 0.3s ease;
+            box-shadow: 0 1rem 2rem rgba(0,0,0,.2);
+            margin-top: -3rem;
+            cursor: pointer;
+            transition:.2s linear;
+            float:right;
+}
+.btn-2:hover {
+    color: #4D4DFF;
+    background: none;
+}
+input{
+    height: 30px;
+}
+@media (max-width: 600px) {
+    .max-width{
+        padding:  23px;
+    }
+   
+    .container-1 h3{
+        font-size: 60px;
+    }
+    form label input a{
+        font-size: 32px;
+    }
+     .btn-1 .btn-2{
+        font-size: 20px;
+        padding: 10px 30px;
+    }
+    .container-1{
+        width: 80%;
+        height: auto;
+    }
+    .scroll-up-btn{
+        right: 15px;
+        bottom: 15px;
+        height: 38px;
+        width: 35px;
+        font-size: 23px;
+        line-height: 38px;
+    }
+}
+    </style>
+</head>
+<body>
+
+    <div class="container-1">
+        <section>
+           <h3>Post your job in seconds for Veera manikanta</h3><br>
+           <form id="form">
+               <label>Job title</label>
+               <input type="text" id="job_title" placeholder="Enter job title" required><br>
+               <label>Category</label>
+               <input type="text" id="Category" placeholder="Enter category" required><br>
+               <label>Job Description</label>
+               <textarea cols="10" rows="10" id="job_description" placeholder="Details of the job" required></textarea>
+               <label>Salary</label>
+               <input type="text" id="Salary" placeholder="Enter salary" required><br>
+               <label>Skills required</label>
+               <input type="text" id="Skills_required" placeholder="Enter skills" required><br>
+           </form>
+           <input type="submit" onclick="Send()" id="button" value="Send" class="btn-1">
+           <a href="index.html"><button class="btn-2">Back</button></a>
+        </section>
+    </div>
+ 
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    
+    <script>
+         let themeColor = document.querySelectorAll('.theme-toggler span');
+    themeColor.forEach(color => color.addEventListener('click', () =>{
+        let background = color.style.background;
+        document.querySelector('body').style.background = background;
+    }));
+
+/* From send to mail */
+
+const btn = document.getElementById('button');
+
+document.getElementById('form')
+ .addEventListener('submit', function(event) {
+   event.preventDefault();
+
+   btn.value = 'Sending...';
+
+   const serviceID = 'service_1mou62j';
+   const templateID = 'template_6411fvi';
+
+   emailjs.sendForm(serviceID, templateID, this)
+    .then(() => {
+      btn.value = 'Send Email';
+      alert('Sent!');
+    }, (err) => {
+      btn.value = 'Send Email';
+      alert(JSON.stringify(err));
+    });
+});
+
+function Send(){
+    var params = {
+        job_title : document.getElementById("job_title").value,
+        Category : document.getElementById("Category").value,
+        job_description : document.getElementById("job_description").value,
+        Salary : document.getElementById("Salary").value,
+        Skills_required : document.getElementById("Skills_required").value
+    }
+    emailjs.send("service_1mou62j","template_6411fvi",params).then(function (res){
+        alert("Success!" + res.status);
+})
+}
+
+document.getElementById("form").reset();
+
+</script>
+
+</body>
+</html>

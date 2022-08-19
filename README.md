@@ -1,2 +1,0 @@
-# veeramanikanta18
- mysite

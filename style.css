@@ -213,6 +213,8 @@ section .title::after{
     background: none;
 }
 
+
+
 /* about section styling */
 .about .title::after{
     content: "who i am";
@@ -311,6 +313,26 @@ section .title::after{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
+}
+
+.share a{
+    display: inline-block;
+    background: #4D4DFF;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 30px;
+    margin-top: 20px;
+    border-radius: 6px;
+    border: 2px solid #4D4DFF;
+    transition: all 0.3s ease;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.share a:hover{
+    color: #4D4DFF;
+    background: none;
 }
 
 /* skills section styling */
